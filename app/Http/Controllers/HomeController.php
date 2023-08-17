@@ -9,6 +9,6 @@ class HomeController extends Controller
 {
     function index()
     {
-       
+
     }
 }
