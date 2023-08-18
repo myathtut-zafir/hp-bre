@@ -61,18 +61,19 @@ class RuleSeeder extends Seeder
                     "operator" => " && ",
                 ],
             ],
+//            [
+//                "result_status" => true,
+//                "types" => "TYPE_AGE_PROPERTY_TENURE",
+//                "message" => "approve",
+//                "rules" => [
+//                    "rules" => [
+//                        "age" => " 1..3",
+//                        "tenure" => " 8..10",
+//                    ],
+//                    "operator" => " && ",
+//                ],
+//            ],
             [
-                "result_status" => true,
-                "types" => "TYPE_AGE_PROPERTY_TENURE",
-                "message" => "approve",
-                "rules" => [
-                    "rules" => [
-                        "age" => " 1..3",
-                        "tenure" => " 8..10",
-                    ],
-                    "operator" => " && ",
-                ],
-            ], [
                 "result_status" => true,
                 "types" => "TYPE_AGE_PROPERTY_TENURE",
                 "message" => "approve",

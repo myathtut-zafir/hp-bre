@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use App\Enums\RuleTypes;
 use Illuminate\Database\Eloquent\Model;
 
 class HomeType extends Model
 {
-
+    public function rules(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Rule::class, 'home_type_rules');
+    }
 }
