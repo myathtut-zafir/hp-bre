@@ -15,12 +15,12 @@ class HomeTypeRuleSeeder extends Seeder
     public function run()
     {
         $firstHomeCategory = [
-            "min-condo",
-            "condo",
-            "apartment",
-            "private house",
-            "shop",
-            "land",
+            'min-condo',
+            'condo',
+            'apartment',
+            'private house',
+            'shop',
+            'land',
         ];
 
         $secondHomeCategory = [

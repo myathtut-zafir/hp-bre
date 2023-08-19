@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('home_types', function (Blueprint $table) {
             $table->id();
-            $table->string("type");
+            $table->string('type');
             $table->timestamps();
         });
     }

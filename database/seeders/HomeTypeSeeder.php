@@ -17,23 +17,23 @@ class HomeTypeSeeder extends Seeder
     {
         $rules = [
             [
-                "type" => "min-condo"
+                'type' => 'min-condo',
             ], [
-                "type" => "condo"
+                'type' => 'condo',
             ], [
-                "type" => "apartment"
+                'type' => 'apartment',
             ], [
-                "type" => "private house"
+                'type' => 'private house',
             ], [
-                "type" => "shop"
+                'type' => 'shop',
             ], [
-                "type" => "land"
+                'type' => 'land',
             ], [
-                "type" => "zone land"
+                'type' => 'zone land',
             ],
         ];
 
-        DB::table("home_types")->truncate();
+        DB::table('home_types')->truncate();
         foreach ($rules as $key => $value) {
             HomeType::create([
                 'type' => $value['type'],

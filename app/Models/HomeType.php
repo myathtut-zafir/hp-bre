@@ -10,4 +10,11 @@ class HomeType extends Model
     {
         return $this->belongsToMany(Rule::class, 'home_type_rules');
     }
+
+    public function scopeHomeRule($query, $homeType)
+    {
+        return $query->where('type', $homeType)->with(['rules' => function ($q): void {
+            $q->orderBy('result_status', 'asc');
+        }]);
+    }
 }
