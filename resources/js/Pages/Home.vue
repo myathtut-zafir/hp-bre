@@ -13,16 +13,16 @@
                 <img src="../../../resources/image/installment.svg" alt="installment-img"
                      class="max-w-[100%] row-span-3"/>
                 <h1 class="text-2xl text-center">0 MMK</h1>
-                <h1 class="text-lg text-[#009fd9] text-center">Monthly Installment</h1>
+                <h1 class="text-lg text-[#009fd9] text-center">Is eligibility?</h1>
                 <div class="flex justify-center gap-4">
                     <div class="flex flex-col">
-                        <label class="text-gray-300 text-base">Interest Rate</label>
-                        <div class="text-base">0% per annum</div>
+                        <label class="text-red-500 text-base">{{ summary_status }}</label>
+<!--                        <div class="text-base">{{ summary_status }}</div>-->
                     </div>
-                    <div class="flex flex-col">
-                        <label class="text-gray-300 text-base">Tenure</label>
-                        <div class="text-base">0 Years</div>
-                    </div>
+<!--                    <div class="flex flex-col">-->
+<!--                        <label class="text-gray-300 text-base">Tenure</label>-->
+<!--                        <div class="text-base">0 Years</div>-->
+<!--                    </div>-->
                 </div>
             </article>
         </header>
@@ -30,7 +30,10 @@
             <!-- Property Type Section -->
             <section class="flex flex-col px-5 pt-8 gap-2">
                 <p class="text-gray-700 py-2">Great! Tell us about the property you are looking for to calculate the
-                    approximate amount you can borrow</p>
+                    approximate amount you can borrow {{summary_status}}</p>
+                <pre>
+                    {{data}}
+                </pre>
                 <label class="text-sm text-gray-700">Property type</label>
                 <article class="flex flex-col md:grid grid-cols-[1fr,1fr,1fr] gap-x-5 gap-y-3">
                     <div class="radio-container checked flex items-center gap-2 border rounded px-4 py-2 flex-1">
@@ -174,25 +177,6 @@
             </button>
         </form>
     </main>
-
-    <!--    <div class="p-6">-->
-    <!--        <div class="flex space-x-4 mb-4">-->
-    <!--            <Link-->
-    <!--                :href="route('homepage')"-->
-    <!--                class="text-gray-700 bg-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"-->
-    <!--            >Homepage-->
-    <!--            </Link-->
-    <!--            >-->
-    <!--            <Link-->
-    <!--                :href="route('about')"-->
-    <!--                class="text-gray-700 bg-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"-->
-    <!--            >About-->
-    <!--            </Link-->
-    <!--            >-->
-    <!--        </div>-->
-
-    <!--        <h1>This is: {{ $page.props.title }}</h1>-->
-    <!--    </div>-->
 </template>
 <script>
 import {inject, reactive} from "vue";
@@ -205,6 +189,8 @@ export default {
         property_value: Number,
         property_type: String,
         tenure: String,
+        data: Object,
+        summary_status: Object,
     },
     setup() {
         const form = useForm({
@@ -215,12 +201,12 @@ export default {
         });
 
         function submit() {
-            form.post('/validate', {
+            form.post('/home', {
                 onError: (data) => {
                     console.log("Error!");
                 },
                 onSuccess: (data) => {
-                    // console.log(data);
+                    console.log(data);
                 },
             });
 

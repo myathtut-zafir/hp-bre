@@ -25,4 +25,4 @@ Route::get(
         );
     }
 )->name('homepage');
-Route::post('validate', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::post('home', [\App\Http\Controllers\HomeController::class, 'index']);
