@@ -98,28 +98,27 @@
 
             <!-- Downpayment Section -->
             <section class="flex flex-col px-5 pt-8 gap-2">
-                <label class="text-sm text-gray-700">Initial down payment</label>
-                <h1 class="text-2xl">0 MMK</h1>
+                <label class="text-sm text-gray-700">Property Age</label>
                 <article class="flex flex-col md:grid grid-cols-[1fr,1fr,1fr] gap-x-5 gap-y-3">
                     <div class="radio-container checked flex items-center gap-2 border rounded px-4 py-2 flex-1">
-                        <input id="downpayment-30-radio" type="radio" value="" name="downpayment_percent"
+                        <input id="property-age-1" type="radio" value="1" name="downpayment_percent" v-model="form.property_age"
                                class="w-4 h-4 accent-[#ed1b34] bg-gray-100 border-gray-300">
-                        <label for="downpayment-30-radio" class="grow">30%</label>
+                        <label for="property-age-1" class="grow">1</label>
                     </div>
                     <div class="radio-container flex items-center gap-2 border rounded px-4 py-2 flex-1">
-                        <input id="downpayment-40-radio" type="radio" value="" name="downpayment_percent"
+                        <input id="property-age-3" type="radio" value="3" name="downpayment_percent" v-model="form.property_age"
                                class="w-4 h-4 accent-[#ed1b34] bg-gray-100 border-gray-300">
-                        <label for="downpayment-40-radio" class="grow">40%</label>
+                        <label for="property-age-3" class="grow">3</label>
                     </div>
                     <div class="radio-container flex items-center gap-2 border rounded px-4 py-2 flex-1">
-                        <input id="downpayment-50-radio" type="radio" value="" name="downpayment_percent"
+                        <input id="property-age-8" type="radio" value="8" name="downpayment_percent" v-model="form.property_age"
                                class="w-4 h-4 accent-[#ed1b34] bg-gray-100 border-gray-300">
-                        <label for="downpayment-50-radio" class="grow">50%</label>
+                        <label for="property-age-8" class="grow">8</label>
                     </div>
                     <div class="radio-container flex items-center gap-2 border rounded px-4 py-2">
-                        <input id="downpayment-other-radio" type="radio" value="" name="downpayment_percent"
+                        <input id="property-age-16" type="radio" value="16" name="downpayment_percent" v-model="form.property_age"
                                class="w-4 h-4 accent-[#ed1b34] bg-gray-100 border-gray-300">
-                        <label for="downpayment-other-radio" class="grow">Other</label>
+                        <label for="property-age-16" class="grow">16</label>
                     </div>
                 </article>
                 <div class="flex items-center gap-2 hidden">
@@ -189,6 +188,7 @@ export default {
     props: {
         property_value: Number,
         property_type: String,
+        property_age: Number,
         tenure: String,
         data: Object,
         summary_status: Object,
@@ -197,6 +197,7 @@ export default {
         const form = useForm({
             property_value: null,
             property_type: null,
+            property_age: null,
             tenure: null,
             _token: usePage().props.value.csrf_token
         });

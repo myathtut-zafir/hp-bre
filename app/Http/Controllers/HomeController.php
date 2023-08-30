@@ -39,8 +39,8 @@ class HomeController extends Controller
                 ], RuleTypes::TENURE->value => [
                     'tenure' => $flattenedRequestData['tenure'],
                 ], RuleTypes::TYPE_AGE_PROPERTY_TENURE->value => [
-                    'tenure' => 3,
-                    'age' => 5,
+                    'tenure' => $flattenedRequestData['tenure'],
+                    'age' => $flattenedRequestData['property_age'],
                 ],
             ][$rule->types->value];
 
@@ -53,7 +53,7 @@ class HomeController extends Controller
         $completeResponse = array_merge([
             'data' => $this->results,
         ], $this->composeSummary());
-
+        //    return  $completeResponse;
         return Inertia::render(
             'Home',
             [
