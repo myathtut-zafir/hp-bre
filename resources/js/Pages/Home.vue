@@ -3,6 +3,11 @@
         <title>{{ $page.props.title }} - My awesome app</title>
     </Head>
     <main class="border shadow-lg rounded flex flex-col relative max-w-[36em]">
+        <section class="absolute top-0 bottom-0 -right-[40vw] w-[40vw]">
+            <div class="whitespace-pre font-mono bg-gray-200 p-4">
+                {{ JSON.stringify(data, null, 4) }}
+            </div>
+        </section>
         <!-- Header -->
         <header class="px-5 pt-8 sticky top-0 shadow flex flex-col bg-white z-10">
             <h1 class="text-3xl pb-4">Property Information</h1>
@@ -12,17 +17,16 @@
             <article class="grid grid-cols-[1fr,1fr] py-6 gap-x-5">
                 <img src="../../../resources/image/installment.svg" alt="installment-img"
                      class="max-w-[100%] row-span-3"/>
-                <h1 class="text-2xl text-center">0 MMK</h1>
                 <h1 class="text-lg text-[#009fd9] text-center">Is eligibility?</h1>
                 <div class="flex justify-center gap-4">
                     <div class="flex flex-col">
                         <label class="text-red-500 text-base">{{ summary_status }}</label>
-<!--                        <div class="text-base">{{ summary_status }}</div>-->
+                        <!--                        <div class="text-base">{{ summary_status }}</div>-->
                     </div>
-<!--                    <div class="flex flex-col">-->
-<!--                        <label class="text-gray-300 text-base">Tenure</label>-->
-<!--                        <div class="text-base">0 Years</div>-->
-<!--                    </div>-->
+                    <!--                    <div class="flex flex-col">-->
+                    <!--                        <label class="text-gray-300 text-base">Tenure</label>-->
+                    <!--                        <div class="text-base">0 Years</div>-->
+                    <!--                    </div>-->
                 </div>
             </article>
         </header>
@@ -30,17 +34,14 @@
             <!-- Property Type Section -->
             <section class="flex flex-col px-5 pt-8 gap-2">
                 <p class="text-gray-700 py-2">Great! Tell us about the property you are looking for to calculate the
-                    approximate amount you can borrow {{summary_status}}</p>
-                <pre>
-                    {{data}}
-                </pre>
+                    approximate amount you can borrow {{ summary_status }}</p>
                 <label class="text-sm text-gray-700">Property type</label>
                 <article class="flex flex-col md:grid grid-cols-[1fr,1fr,1fr] gap-x-5 gap-y-3">
                     <div class="radio-container checked flex items-center gap-2 border rounded px-4 py-2 flex-1">
                         <input id="apartment" type="radio" value="apartment" name="property_type"
                                v-model="form.property_type"
                                class="w-4 h-4 accent-[#ed1b34] bg-gray-100 border-gray-300 checked:bg-green-500">
-                        <label for="apartment-radio" class="grow">Apartment</label>
+                        <label for="apartment" class="grow">Apartment</label>
                     </div>
                     <div class="radio-container flex items-center gap-2 border rounded px-4 py-2 flex-1">
                         <input id="mini-condo" type="radio" value="mini-condo" name="property_type"
@@ -91,8 +92,8 @@
                         MMK
                     </div>
                 </div>
-                <div class="text-[#00a9e1] text-sm hidden">Minimum property value for Apartment should be 20,000,000
-                </div>
+<!--                <div class="text-[#00a9e1] text-sm hidden">Minimum property value for Apartment should be 20,000,000-->
+<!--                </div>-->
             </section>
 
             <!-- Downpayment Section -->

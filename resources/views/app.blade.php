@@ -18,12 +18,12 @@
             border: 1px solid lightgray;
             transition: all 400ms;
         }
-        .radio-container.checked {
-            background-color: #ed1b34;
-            border: 1px solid #ed1b34;
+            .radio-container.checked {
+            /*background-color: #ed1b34;*/
+            /*border: 1px solid #ed1b34;*/
         }
         .radio-container.checked > label {
-            color: white;
+            color: black;
         }
     </style>
 </head>

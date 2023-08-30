@@ -118,6 +118,47 @@ class RuleSeeder extends Seeder
                     'operator' => ' && ',
                 ],
             ],
+            [
+                'result_status' => false,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'reject',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' <30',
+                    ],
+                    'operator' => null,
+                ],
+            ], [
+                'result_status' => true,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'approve',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' >30',
+                    ],
+                    'operator' => null,
+                ],
+            ], [
+                'result_status' => true,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'approve',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' >=50',
+                    ],
+                    'operator' => null,
+                ],
+            ], [
+                'result_status' => false,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'reject',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' <50',
+                    ],
+                    'operator' => null,
+                ],
+            ],
         ];
 
         DB::table('rules')->truncate();
