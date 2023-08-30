@@ -15,7 +15,7 @@ class HomeTypeRuleSeeder extends Seeder
     public function run()
     {
         $firstHomeCategory = [
-            'min-condo',
+            'mini-condo',
             'condo',
             'apartment',
             'private house',
@@ -24,14 +24,17 @@ class HomeTypeRuleSeeder extends Seeder
         ];
 
         $secondHomeCategory = [
-            'zone-land', 'shop'];
-        $otherHomeCategory = ['Other'];
+            'zone_land'];
 
         $homeTypes = HomeType::all();
         foreach ($homeTypes as $homeType) {
             if (in_array($homeType->type, $firstHomeCategory)) {
                 $homeType->rules()->sync([
                     1, 2, 3, 4, 5, 6, 7, 8,
+                ]);
+            } elseif (in_array($homeType->type, $secondHomeCategory, true)) {
+                $homeType->rules()->sync([
+                    9,
                 ]);
             }
         }

@@ -61,18 +61,6 @@ class RuleSeeder extends Seeder
                     'operator' => ' && ',
                 ],
             ],
-            //            [
-            //                "result_status" => true,
-            //                "types" => "TYPE_AGE_PROPERTY_TENURE",
-            //                "message" => "approve",
-            //                "rules" => [
-            //                    "rules" => [
-            //                        "age" => " 1..3",
-            //                        "tenure" => " 8..10",
-            //                    ],
-            //                    "operator" => " && ",
-            //                ],
-            //            ],
             [
                 'result_status' => true,
                 'types' => 'TYPE_AGE_PROPERTY_TENURE',
@@ -116,6 +104,58 @@ class RuleSeeder extends Seeder
                         'tenure' => ' 1..9',
                     ],
                     'operator' => ' && ',
+                ],
+            ], [
+                'result_status' => false,
+                'types' => 'TYPE_AGE_PROPERTY_TENURE',
+                'message' => 'reject',
+                'rules' => [
+                    'rules' => [
+                        'age' => ' >15',
+                        //                        'tenure' => ' 5..10',
+                    ],
+                    'operator' => null,
+                ],
+            ],
+            [
+                'result_status' => false,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'reject',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' <30',
+                    ],
+                    'operator' => null,
+                ],
+            ], [
+                'result_status' => true,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'approve',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' >30',
+                    ],
+                    'operator' => null,
+                ],
+            ], [
+                'result_status' => true,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'approve',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' >=50',
+                    ],
+                    'operator' => null,
+                ],
+            ], [
+                'result_status' => false,
+                'types' => 'DOWN_PAYMENT',
+                'message' => 'reject',
+                'rules' => [
+                    'rules' => [
+                        'down_payment' => ' <50',
+                    ],
+                    'operator' => null,
                 ],
             ],
         ];
