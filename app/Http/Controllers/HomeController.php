@@ -138,7 +138,7 @@ class HomeController extends Controller
     public function failRule(mixed $rule, string $condition): void
     {
         if (! array_key_exists($rule->types->value, $this->fail)) {
-            $this->fail[$rule->types->value] = ['status' => 'Referred', 'rule' => $condition, 'rule_id' => $rule->id, 'types' => $rule->types->value, 'message' => 'Referred'];
+            $this->fail[$rule->types->value] = ['status' => 'Rejected', 'rule' => $condition, 'rule_id' => $rule->id, 'types' => $rule->types->value, 'message' => 'Rejected'];
         }
 
         $this->removeResultInFailResults($rule);
@@ -147,7 +147,7 @@ class HomeController extends Controller
     public function successRule(string $condition, mixed $rule): void
     {
         if (! array_key_exists($rule->types->value, $this->success)) {
-            $this->success[$rule->types->value] = ['status' => 'Pre-Approved', 'rule' => $condition, 'rule_id' => $rule->id, 'types' => $rule->types->value, 'message' => $rule->message];
+            $this->success[$rule->types->value] = ['status' => 'Approved', 'rule' => $condition, 'rule_id' => $rule->id, 'types' => $rule->types->value, 'message' => $rule->message];
         }
 
         $this->removeResultInFailResults($rule);
