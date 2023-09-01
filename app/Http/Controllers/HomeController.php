@@ -21,7 +21,6 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        Log::info('dd', ['dd' => $request->all()]);
         $this->fail = [];
         $this->success = [];
         $this->results = [];
