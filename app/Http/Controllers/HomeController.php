@@ -6,7 +6,6 @@ use App\Enums\RuleTypes;
 use App\Models\HomeType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use stdClass;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
@@ -28,10 +27,11 @@ class HomeController extends Controller
         $flattenedRequestData = Arr::dot($request->all());
         $expressionLanguage = new ExpressionLanguage();
         $propertyRules = HomeType::homeRule($flattenedRequestData['property_type'])->firstOrFail();
-        $rules = $propertyRules->rules;
+        $rules = $propertyRules->rules;//get rules json obj
 
         foreach ($rules as $rule) {
             $condition = $this->getCondition($rule);
+
             $values = [
                 RuleTypes::LOAN_AMOUNT->value => [
                     'amount' => $flattenedRequestData['property_value'],
